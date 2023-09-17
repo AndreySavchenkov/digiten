@@ -3,10 +3,10 @@ export type PostType = {
   content: string;
   category: string;
   date: string;
-}
+};
 
 export enum CategoriesEnum {
   TECHNOLOGY = 'technology',
   FOOD = 'food',
-  TRAVEL = 'travel',
+  TRAVEL = 'travel'
 }

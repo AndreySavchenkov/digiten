@@ -4,25 +4,24 @@ import { MainLayout } from './layouts/MainLayout/MainLayout';
 import { Posts } from './components/Posts/Posts';
 import { FilterSortMenu } from './components/FilterSortMenu/FilterSortMenu';
 import { useFilterAndSort } from './hooks/useFilterAndSort';
-import posts from './mockData/data.json'
+import posts from './mockData/data.json';
 
 function App() {
-
-const {
-  endDate, 
-  startDate, 
-  setEndDate, 
-  sortedPosts, 
-  setStartDate, 
-  toggleSortOrder, 
-  selectedCategory, 
-  setSelectedCategory, 
-  sortByDateAscending, 
-} = useFilterAndSort(posts);
+  const {
+    endDate,
+    startDate,
+    setEndDate,
+    sortedPosts,
+    setStartDate,
+    toggleSortOrder,
+    selectedCategory,
+    setSelectedCategory,
+    sortByDateAscending
+  } = useFilterAndSort(posts);
 
   return (
     <MainLayout>
-      <FilterSortMenu 
+      <FilterSortMenu
         setEndDate={setEndDate}
         endDate={endDate as Date}
         setStartDate={setStartDate}
@@ -32,7 +31,7 @@ const {
         setSelectedCategory={setSelectedCategory}
         sortByDateAscending={sortByDateAscending}
       />
-      <Posts posts={sortedPosts}/>
+      <Posts posts={sortedPosts} />
     </MainLayout>
   );
 }

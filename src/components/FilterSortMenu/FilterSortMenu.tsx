@@ -1,8 +1,8 @@
-import React, { FC } from 'react'
-import { SortByDate } from './components/SortByDate/SortByDate'
-import { FilterByDate } from './components/FilterByDate/FilterByDate'
-import { FilterByCategory } from './components/FilterByCategory/FilterByCategory'
-import { CategoriesEnum } from '../../types'
+import React, { FC } from 'react';
+import { SortByDate } from './components/SortByDate/SortByDate';
+import { FilterByDate } from './components/FilterByDate/FilterByDate';
+import { FilterByCategory } from './components/FilterByCategory/FilterByCategory';
+import { CategoriesEnum } from '../../types';
 import styles from './FilterSortMenu.module.scss';
 
 type FilterSortMenuProps = {
@@ -14,9 +14,9 @@ type FilterSortMenuProps = {
   setEndDate: (date: Date) => void;
   sortByDateAscending: boolean;
   toggleSortOrder: () => void;
-}
+};
 
-export const FilterSortMenu:FC<FilterSortMenuProps> = ({
+export const FilterSortMenu: FC<FilterSortMenuProps> = ({
   selectedCategory,
   setSelectedCategory,
   startDate,
@@ -24,13 +24,21 @@ export const FilterSortMenu:FC<FilterSortMenuProps> = ({
   setStartDate,
   setEndDate,
   sortByDateAscending,
-  toggleSortOrder,
+  toggleSortOrder
 }) => {
   return (
     <div className={styles.menu}>
       <SortByDate toggleSortOrder={toggleSortOrder} sortByDateAscending={sortByDateAscending} />
-      <FilterByDate startDate={startDate as Date} endDate={endDate as Date} setStartDate={setStartDate} setEndDate={setEndDate}  />
-      <FilterByCategory selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
+      <FilterByDate
+        startDate={startDate as Date}
+        endDate={endDate as Date}
+        setStartDate={setStartDate}
+        setEndDate={setEndDate}
+      />
+      <FilterByCategory
+        selectedCategory={selectedCategory}
+        setSelectedCategory={setSelectedCategory}
+      />
     </div>
-  )
-}
+  );
+};

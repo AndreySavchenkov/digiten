@@ -1,8 +1,8 @@
-import { useCallback, useState } from "react";
-import { CategoriesEnum, PostType } from "../types";
+import { useCallback, useState } from 'react';
+import { CategoriesEnum, PostType } from '../types';
 
 export const useFilterAndSort = (posts: PostType[]) => {
-const [selectedCategory, setSelectedCategory] = useState<CategoriesEnum | 'all'>('all');
+  const [selectedCategory, setSelectedCategory] = useState<CategoriesEnum | 'all'>('all');
   const [startDate, setStartDate] = useState<Date | null>(new Date('2021-05-20'));
   const [endDate, setEndDate] = useState<Date | null>(new Date());
   const [sortByDateAscending, setSortByDateAscending] = useState(false);
@@ -17,21 +17,29 @@ const [selectedCategory, setSelectedCategory] = useState<CategoriesEnum | 'all'>
     return posts;
   }, [startDate, endDate, posts]);
 
-  const filterPostsByCategory = useCallback((filteredPosts: PostType[]) => {
-    if (selectedCategory === 'all') {
-      return filteredPosts;
-    }
-    return filteredPosts.filter((post) => post.category === selectedCategory);
-  }, [selectedCategory]);
+  const filterPostsByCategory = useCallback(
+    (filteredPosts: PostType[]) => {
+      if (selectedCategory === 'all') {
+        return filteredPosts;
+      }
+      return filteredPosts.filter((post) => post.category === selectedCategory);
+    },
+    [selectedCategory]
+  );
 
-  const sortPosts = useCallback((sortedPosts: PostType[]) => {
-    return sortedPosts.sort((a, b) => {
-      const dateA = new Date(a.date);
-      const dateB = new Date(b.date);
+  const sortPosts = useCallback(
+    (sortedPosts: PostType[]) => {
+      return sortedPosts.sort((a, b) => {
+        const dateA = new Date(a.date);
+        const dateB = new Date(b.date);
 
-      return sortByDateAscending ? dateA.getTime() - dateB.getTime() : dateB.getTime() - dateA.getTime();
-    });
-  }, [sortByDateAscending]);
+        return sortByDateAscending
+          ? dateA.getTime() - dateB.getTime()
+          : dateB.getTime() - dateA.getTime();
+      });
+    },
+    [sortByDateAscending]
+  );
 
   const filteredPostsByDate = filterPostsByDateRange();
   const filteredPostsByCategory = filterPostsByCategory(filteredPostsByDate);
@@ -41,5 +49,15 @@ const [selectedCategory, setSelectedCategory] = useState<CategoriesEnum | 'all'>
     setSortByDateAscending((prev) => !prev);
   };
 
-return {setEndDate, endDate, setStartDate, startDate, toggleSortOrder, selectedCategory, setSelectedCategory, sortByDateAscending, sortedPosts}
-}
+  return {
+    setEndDate,
+    endDate,
+    setStartDate,
+    startDate,
+    toggleSortOrder,
+    selectedCategory,
+    setSelectedCategory,
+    sortByDateAscending,
+    sortedPosts
+  };
+};

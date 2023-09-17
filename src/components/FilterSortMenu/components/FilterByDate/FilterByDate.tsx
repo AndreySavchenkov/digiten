@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import DatePicker from "react-datepicker";
+import DatePicker from 'react-datepicker';
 import styles from './FilterByDate.module.scss';
 
 type FilterByDateProps = {
@@ -7,9 +7,14 @@ type FilterByDateProps = {
   endDate: Date;
   setStartDate: (date: Date) => void;
   setEndDate: (date: Date) => void;
-}
+};
 
-export const FilterByDate:FC<FilterByDateProps> = ({startDate, endDate, setStartDate, setEndDate}) => {
+export const FilterByDate: FC<FilterByDateProps> = ({
+  startDate,
+  endDate,
+  setStartDate,
+  setEndDate
+}) => {
   return (
     <div className={styles.filter}>
       <div className={styles.item}>
@@ -21,5 +26,5 @@ export const FilterByDate:FC<FilterByDateProps> = ({startDate, endDate, setStart
         <DatePicker selected={endDate} onChange={(date) => setEndDate(date!)} />
       </div>
     </div>
-  )
-}
+  );
+};

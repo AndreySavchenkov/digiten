@@ -4,10 +4,10 @@ import { PostType } from '../../types';
 
 type PostProps = {
   post: PostType;
-}
+};
 
-export const Post:FC<PostProps> = ({post}) => {
-const {title, content, category, date} = post;
+export const Post: FC<PostProps> = ({ post }) => {
+  const { title, content, category, date } = post;
 
   return (
     <article className={styles.post}>
@@ -18,5 +18,5 @@ const {title, content, category, date} = post;
       </div>
       <span>{date}</span>
     </article>
-  )
-}
+  );
+};

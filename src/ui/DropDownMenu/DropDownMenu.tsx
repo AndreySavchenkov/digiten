@@ -1,16 +1,16 @@
-import React, { FC, useState } from 'react'
-import { CategoriesEnum } from '../../types'
+import React, { FC, useState } from 'react';
+import { CategoriesEnum } from '../../types';
 import styles from './DropDownMenu.module.scss';
 import { capitalizeFirstLetter } from '../../helpers';
 
 type DropDownMenuProps = {
   selectedCategory: CategoriesEnum | 'all';
   setSelectedCategory: (category: CategoriesEnum | 'all') => void;
-}
+};
 
 const categoriesForMenu: (CategoriesEnum | 'all')[] = ['all', ...Object.values(CategoriesEnum)];
 
-export const DropDownMenu:FC<DropDownMenuProps> = ({selectedCategory,   setSelectedCategory}) => {
+export const DropDownMenu: FC<DropDownMenuProps> = ({ selectedCategory, setSelectedCategory }) => {
   const [isShowMenu, setIsShowMenu] = useState(false);
 
   const changeCategoryAndCloseMenu = (category: CategoriesEnum | 'all') => {
@@ -24,15 +24,19 @@ export const DropDownMenu:FC<DropDownMenuProps> = ({selectedCategory,   setSelec
 
       {isShowMenu && (
         <div className={styles.menu}>
-          {categoriesForMenu.map((category) => (
-          category !== selectedCategory && (
-            <span className={styles.item} key={category} onClick={() => changeCategoryAndCloseMenu(category)}>
-              {capitalizeFirstLetter(category)}
-          </span>
-          )
-          ))}
+          {categoriesForMenu.map(
+            (category) =>
+              category !== selectedCategory && (
+                <span
+                  className={styles.item}
+                  key={category}
+                  onClick={() => changeCategoryAndCloseMenu(category)}>
+                  {capitalizeFirstLetter(category)}
+                </span>
+              )
+          )}
         </div>
       )}
     </div>
-  )
-}
+  );
+};
