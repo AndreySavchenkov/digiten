@@ -5,6 +5,14 @@
   padding: 18px;
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 60px;
+}
+
 @media (max-width: 768px) {
   .posts {
     justify-content: center;
