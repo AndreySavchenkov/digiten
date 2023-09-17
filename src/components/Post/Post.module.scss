@@ -1,0 +1,16 @@
+.post {
+  display: flex;
+  width: 250px;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 14px;
+  gap: 10px;
+  border: 1px solid var(--color-background-main);
+  border-radius: 18px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

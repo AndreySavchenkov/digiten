@@ -1,0 +1,18 @@
+@mixin header-text {
+  font-family: sans-serif;
+  font-size: 24px;
+  color: transparent;
+  background-image: var(--gradient-text-header);
+}
+
+@mixin main-text {
+  font-family: sans-serif;
+  font-size: 16px;
+  color: #000;
+}
+
+@mixin footer-text {
+  font-family: sans-serif;
+  font-size: 14px;
+  color: #BDBDBD;
+}

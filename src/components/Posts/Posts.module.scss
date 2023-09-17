@@ -1,0 +1,12 @@
+.posts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  padding: 18px;
+}
+
+@media (max-width: 768px) {
+  .posts {
+    justify-content: center;
+  }
+}

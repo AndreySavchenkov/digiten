@@ -1,0 +1,22 @@
+.root {
+  position: relative;
+  cursor: pointer;
+}
+
+.menu {
+  top: 20px;
+  position: absolute;
+  display: flex;
+  padding: 4px 0;
+  flex-direction: column;
+  z-index: 1;
+  background-color: #454343;
+  border-radius: 8px;
+}
+
+.item {
+  padding: 2px 8px;
+  &:hover {
+     background-color: #858383;
+  }
+}

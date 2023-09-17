@@ -1,0 +1,23 @@
+@import 'src/styles/font';
+
+.layout {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.main {
+  height: calc(100vh - 140px);
+
+  @include main-text;
+
+  color: var(--color-text-main);
+  background-color: var(--color-background-main);
+  overflow: auto;
+  border: 1px solid #D3D3D3;
+
+  &:hover {
+    color: #FFF;
+    background-color: #616161;
+    transition: background-color 0.5s ease;
+  }
+}

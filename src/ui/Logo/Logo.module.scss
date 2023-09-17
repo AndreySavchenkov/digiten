@@ -1,0 +1,6 @@
+@import 'src/styles/font';
+
+.logo {
+  @include header-text;
+  background-clip: text;
+}
